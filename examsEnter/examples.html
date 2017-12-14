@@ -99,10 +99,10 @@
 		},
 		]
 
-		let list = document.getElementById("list");
+		var list = document.getElementById("list");
 		list.reloadData(listData);
 		list.setOnClick((section,index) => {
-			let url = listData[section].rowsData[index].url;
+			var url = listData[section].rowsData[index].url;
 
 			if (url) {
 				if(url == "table"){
