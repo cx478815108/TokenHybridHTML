@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<title>scrollView</title>
+	<meta charset="UTF-8">
+	<style type="text/css" media="screen">
+		body {
+			background-color: rgb(255,255,255);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		#container {
+			width:100%;
+			height: 100%;
+			background-color: rgb(220,240,140);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+			height: 180px;
+			margin-top: 2px;
+			background-color: rgb(255,255,255);
+			flex-wrap: nowrap;
+		}
+
+		.box {
+			width:80%;
+			height: 300px;
+			margin-right: 1px;
+			margin-top: 2px;
+			margin-left: 10px;
+			background-color: rgb(220,220,220);
+		}
+
+		label {
+			color: rgb(80,80,80);
+		}
+
+		.wrapper2 {
+			display: flex;
+			flex-direction: row;
+			width: 80%;
+			height: 180px;
+			background-color: rgb(140,140,140);
+		}
+
+
+		.box2 {
+			width:80%;
+			height: 90%;
+			margin-right: 1px;
+			margin-top: 6px;
+			background-color: rgb(220,220,220);
+		}
+
+		.two {
+			margin-left: 8px;
+			margin-top: 10px;
+			width :60%;
+			height :44px;
+			background-color: rgb(120,78,220);
+			border-radius: 4px;
+		}
+
+		#rbox {
+			background-color: rgb(180,0,0);
+		}
+
+		#gbox {
+			background-color: rgb(0,180,0);
+		}
+
+		#box {
+			background-color: rgb(0,0,180);
+		}
+
+	</style>
+
+	<script  type="text/javascript" charset="utf-8" >
+		let wrapper = document.getElementsByClassName("wrapper")[0];
+		let wrapper2 = document.getElementsByClassName("wrapper2")[0];
+		let btn1 = document.getElementById("btn1");
+		btn1.setOnClick(()=>{
+			wrapper.scrollToTop(1);
+			wrapper2.scrollToTop(1);
+		})
+
+		let btn2 = document.getElementById("btn2");
+		btn2.setOnClick(()=>{
+			wrapper2.showHBar(0);
+			wrapper.showVBar(0);
+		})
+
+		let btn3 = document.getElementById("btn3");
+		btn3.setOnClick(()=>{
+			wrapper.scrollEnable(0);
+			wrapper2.scrollEnable(0);
+		})
+
+		let btn4 = document.getElementById("btn4");
+		btn4.setOnClick(()=>{
+			wrapper2.showHBar(1);
+			wrapper.showVBar(1);
+			wrapper.scrollEnable(1);
+			wrapper2.scrollEnable(1);
+			wrapper.scrollEnable(1);
+			wrapper2.scrollEnable(1);
+		})
+	</script>
+
+
+</head>
+<body>
+	<scrollView id = "container">
+		<label>垂直滚动</label>
+		<scrollView class = "wrapper" showVBar = "true">
+			<div class = "box" id = "rbox"></div>
+			<div class = "box" id = "gbox"></div>
+			<div class = "box" id = "bbox"></div>
+		</scrollView>
+		<label>水平滚动</label>
+		<scrollView class = "wrapper2" showVBar = "true">
+			<div class = "box2"></div>
+			<div class = "box2"></div>
+			<div class = "box2"></div>
+		</scrollView>
+
+		<button class = "two" id = "btn1" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(210,0,0)" >回到顶部</button>
+		<button class = "two" id = "btn2" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,210,0)" >隐藏滚动条</button>
+		<button class = "two" id = "btn3" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >禁止滚动</button>
+		<button class = "two" id = "btn4" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >reset</button>
+		<button class = "two" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >一个按钮</button>
+		<button class = "two" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >又一个按钮</button>
+		<button class = "two" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >按钮</button>
+		<button class = "two" titleColor = "rgb(255,255,255)" highlightTitleColor = "rgb(0,0,210)" >按钮</button>
+	</scrollView>
+
+</body>
+</html>

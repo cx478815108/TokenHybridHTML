@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>测试</title>
+	<script>
+		var webView = document.getElementById("webView");
+		webView.setUA('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Mobile/15A372 TokenBrowser/1.0 iWut/2.0');
+		webView.loadURL("https://web.wutnews.net/electric");
+		webView.onStartLoad(()=>{
+			info.setText("webViewStartLoad");
+		})
+		webView.onReceiveContent(()=>{
+			info.setText("onReceiveContent");
+		})
+		webView.onFinish(()=>{
+			info.setText("onFinish");
+		})
+		webView.onFailLoad(()=>{
+			info.setText("onFailLoad");
+		})
+
+		webView.onReceiveJSMessage((...args)=>{
+			info.setText("onReceiveJSMessage");
+			log(args);
+		})
+	</script>
+</head>
+<body style = "background-color: rgb(240,240,245);width: calc(100%H);height: calc(100%V);display:flex;flex-direction: column;flex-wrap: wrap;">
+	<webView id = "webView" style = "width :calc(100%H+10px);flex-grow: 1;margin-top: 1px;margin-left: -10px;"></webView>
+</body>
+</html>

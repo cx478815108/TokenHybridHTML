@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>switch</title>
+	<style type="text/css" media="screen">
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.typeA {
+			margin-left: 20px;
+			margin-top: 4px;
+		}
+	</style>
+
+	<script  type="text/javascript" charset="utf-8">
+		let switch1 = document.getElementById("switch");
+		switch1.setOnClick((state)=>{
+			token.alert("提示","开关状态"+state);
+		})
+	</script>
+</head>
+<body>
+	<switch class = "typeA"  id = "switch" onColor = "rgb(180,0,0)"></switch>
+	<switch class = "typeA"  onColor = "rgb(0,180,0)"></switch>
+	<switch class = "typeA"  onColor = "rgb(0,0,180)"></switch>
+	<switch class = "typeA"  color = "rgb(0,0,0)"></switch>
+	<switch class = "typeA"  color = "rgb(0,180,0)"></switch>
+	<switch class = "typeA"  ></switch>
+	<label>打开第一个开关试一试</label>
+</body>
+</html>

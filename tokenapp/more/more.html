@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<title>更多</title>
+	<style>
+		.card {
+			width: calc(33.33%H-1px);
+			height: calc(33.33%H-1px);
+			background-color: rgb(255,255,255);
+			margin-right: 1px;
+			margin-top: 1px;
+		}
+
+		.sep {
+			width: 100%;
+			height: 0.5px;
+			background-color: rgb(240,240,240);
+		}
+
+		.iconImage {
+			align-self: center;
+			width: 30px;
+			height: 30px;
+			margin-top: 28px;
+			background-color: rgb(30)
+		}
+
+		.icontext {
+			margin-top: 10px;
+			text-align: center;
+			width: 100%;
+			height: 30px;
+			font-size: 14px;
+			color: rgb(80,80,80);
+		}
+	</style>
+
+
+	<script>
+
+
+		var data = [
+			{
+				title:"财务",
+				url:"https://web.wutnews.net/score/index/finance",
+				icon:"https://static.wutnews.net/icon/finance/2x.png"
+			},
+			{
+				title:"失物招领",
+				url:"https://web.wutnews.net/lost",
+				icon:"https://static.wutnews.net/icon/lost/3x.png"
+			},
+			{
+				title:"共享单车",
+				url:"https://web.wutnews.net/act/bike.php",
+				icon:"https://static.wutnews.net/icon/bicycle/2x.png"
+			},
+			{
+				title:"全景校园",
+				url:"https://web.wutnews.net/street",
+				icon:"https://static.wutnews.net/icon/view/3x.png"
+			},
+			{
+				title:"课程评教",
+				url:"https://web.wutnews.net/eot",
+				icon:"https://static.wutnews.net/icon/exam/3x.png"
+			},
+			{
+				title:"讲座活动",
+				url:"https://web.wutnews.net/Recruit/lecture",
+				icon:"https://static.wutnews.net/icon/lecture/3x.png"
+			},
+			{
+				title:"小纬知道",
+				url:"https://web.wutnews.net/robot",
+				icon:"https://static.wutnews.net/icon/robot/2x.png"
+			},
+
+			{
+				title:"勤工助学",
+				url:"https://web.wutnews.net/qgzx",
+				icon:"https://static.wutnews.net/icon/qgzx/2x.png"
+			},
+			{
+				title:"正版软件",
+				url:"http://ms.whut.edu.cn/",
+				icon:"https://static.wutnews.net/icon/group/2x.png"
+			},
+			{
+				title:"校内邮箱",
+				url:"https://web.wutnews.net/act/mail.php",
+				icon:"https://static.wutnews.net/icon/email/3x.png"
+			},
+			{
+				title:"新生手册",
+				url:"http://app.wutnews.net/freshman",
+				icon:"https://static.wutnews.net/icon/freshman/3x.png"
+			},
+			{
+				title:"VPN",
+				url:"itms-apps://itunes.apple.com/cn/app/easyconnect/id440460214",
+				icon:"https://static.wutnews.net/icon/vpn/3x.png"
+			},
+			{
+				title:"考试成绩",
+				url:"https://web.wutnews.net/score",
+				icon:"https://static.wutnews.net/icon/cet/2x.png"
+			},
+			{
+				title:"校园地图",
+				url:"http://uri.amap.com/",
+				icon:"https://static.wutnews.net/icon/map/2x.png"
+			},
+			{
+				title:"理工视界",
+				url:"https://web.wutnews.net/act/vision",
+				icon:"https://static.wutnews.net/icon/vision/2x.png"
+			},
+
+			{
+				title:"内容投稿",
+				url:"http://news.whut.edu.cn/user/login?referer=/post",
+				icon:"https://static.wutnews.net/icon/post/2x.png"
+			},
+			{
+				title:"吾理杂志",
+				url:"http://token.wutnews.net/wuters/samples/magazine/slider.html",
+				icon:"https://static.wutnews.net/icon/magazine/2x.png"
+			},
+			{
+				title:"Token招新",
+				url:"http://token.wutnews.net/join",
+				icon:"https://static.wutnews.net/icon/join/2x.png"
+			},
+		]
+
+		function clickAtIndex(index,item){
+			var singleData = data[index];
+
+			if (singleData.title == 'VPN') {
+				token.alertTitles({
+					title: 'VPN由其他软件提供',
+					msg:"VPN服务器地址：https://vpnu.whut.edu.cn \n账号密码与校园网一致 \n点击“确定”将跳转app store 下载",
+					actionTitles: ["确定"],
+					feedBack:(index)=>{
+						if (index == 0) {
+							token.openAppWithURL({
+								url:singleData.url
+							})
+						}
+					},
+					cancleButton: true,
+				});
+			}
+			if (singleData.title == '失物招领' || singleData.title == '课程评教' || singleData.title == '校内邮箱') {
+				if (token.existUser()) {
+					token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
+				}
+				else {
+					token.requestLoginUser(()=>{
+						token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
+					},()=>{
+						token.showNormalToast('必须登录才可以使用该功能');
+					});
+				}
+			}
+			else {
+				token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
+			}
+			// item.setBackgroundColor('rgb(240,240,245)');
+			// token.setMainTimeOut(()=>{
+			// 	item.setBackgroundColor('rgb(255,255,255)');
+			// },0.25);
+		}
+
+		var cards = document.getElementsByClassName("card");
+		var count = cards.length-1;
+		cards.forEach((item,index)=>{
+			var realIndex = count - index;
+			var singleData = data[realIndex];
+
+			item.setOnClick(()=>{
+				clickAtIndex(realIndex,item);
+			})
+
+			var image = item.getElementsByClassName("iconImage")[0];
+			image.setImage(singleData.icon,1);
+			image.setOnClick(()=>{
+				clickAtIndex(realIndex,item);
+			})
+
+
+			var label = item.getElementsByClassName("icontext")[0];
+			label.setOnClick(()=>{
+				clickAtIndex(realIndex,item);
+			})
+			label.setText(singleData.title);
+		});
+
+		// window.pageRefresh = ()=>{
+		// 	token.showNormalToast('課程評教已可用！',3);
+		// }
+
+	</script>
+</head>
+<body style = "background-color: rgb(240,240,245);width: calc(100%H);height: calc(100%V);">
+	<scrollView style = "width: 100%;height: 100%;background-color: rgb(240,240,245);flex;flex-direction: row;flex-wrap: wrap;">
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<button class = "card">
+			<image class = "iconImage" imageMode = "aspectfit"></image>
+			<label class = "icontext"></label>
+		</button>
+		<div style = "width: 100%;height: 20px;">
+		</div>
+	</scrollView>
+
+</body>
+</html>

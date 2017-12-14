@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token" version ="1.0">
+<head>
+	<meta charset="UTF-8">
+	<title>textArea组件</title>
+	<script>
+		let textView = document.getElementById("textView");
+		let textInfo = "textArea用来展示或者编辑大量文本，除拥有input组件的一切方法，额外包含:\ntextArea.scrollEnable()\ntextArea.setEditable()\ntextArea.showVBar()\n\n\n摇晃手机弹出控制台，输入JS语句进行调试\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本\n\n\n长文本";
+		textView.setText(textInfo);
+	</script>
+</head>
+<body style = "background-color: rgb(240,240,245);width: calc(100%H);height: calc(100%V);display: flex;flex-direction: column;flex-wrap: wrap;">
+	<textArea id = "textView" fontSize = "16px" style = "margin-top:20px;width: 100%;height: 60%;"></textArea>
+</body>
+</html>

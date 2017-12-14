@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>input组件</title>
+	<style type="text/css" media="screen">
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.one {
+			width: 94%;
+			height: 44px;
+			margin-left: 3%;
+			margin-top: 12px;
+		}
+	</style>
+
+	<script  type="text/javascript" charset="utf-8">
+		let input = document.getElementById("inputOne");
+		let label1 = document.getElementById("label1");
+		let label2 = document.getElementById("label2");
+		input.onBeginEditing(()=>{
+			label1.setText("开始输入");
+		});
+
+		input.onEndEditing(()=>{
+			label1.setText("结束输入");
+		});
+
+		input.onTextChange((text)=>{
+			label2.setText(text);
+		});
+
+		input.onClearClick(()=>{
+			label1.setText("点击了清除按钮");
+			label2.setText("");
+		});
+
+		input.onKeyBoardReturn((text)=>{
+			label1.setText("点击了return");
+		});
+	</script>
+</head>
+<body>
+	<input id = "inputOne" class = "one" borderStyle = "roundedRect" backgroundColor = "rgb(250,250,250)" placeholder="borderStyle：roundedRect" align = "left" fontSize = "13px;" showClear = "1"></input>
+
+	<input id = "inputTwo" class = "one" borderStyle = "line" backgroundColor = "rgb(250,250,250)" placeholder="borderStyle：line" align = "center" fontSize = "13px;"></input>
+
+	<input id = "inputThree" class = "one" borderStyle = "bezel" backgroundColor = "rgb(250,250,250)" placeholder="borderStyle：bezel" align = "rignt" fontSize = "13px;"></input>
+
+	<label id = "label1" style = "width: 94%;height: 44px;margin-left: 3%;margin-top: 12px;color:rgb(0,180,0)">状态显示</label>
+	<label id = "label2" style = "width: 94%;height: 44px;margin-left: 3%;margin-top: 12px;color:rgb(180,0,0);border-color: rgb(120,120,120);border-width: 1px;">这里显示第一个输入框的文字</label>
+</body>
+</html>

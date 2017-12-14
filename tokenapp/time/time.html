@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token" version = "1.1">
+<head>
+	<title>Time</title>
+	<navigationBar backgroundColor = "rgb(255,255,255)" backArrowColor = "rgb(80,80,80)" titleColor = "rgb(40,40,40)"></navigationBar>
+	<style>
+
+		.cell {
+			width: 100%;
+			height: 50px;
+			background-color: rgb(255,255,255);
+			display: flex;
+			flex-direction: row;
+			margin-top: 2px;
+		}
+
+		.leftIcon {
+			margin-left: 20px;
+			width: 20px;
+			height: 16px;
+			align-self:center;
+		}
+
+		.sep{
+			width:calc(100%H-30px);
+			margin-left: 18px;
+			height: 0.5px;
+			background-color: rgb(220,220,220);
+		}
+
+		.info {
+			flex-grow: 1;
+			height: 100%;
+			margin-left: 20px;
+			color: rgb(120,120,120);
+			font :HelveticaNeue-Medium 16px;
+		}
+
+		.arrow {
+			margin-left: 20px;
+			margin-right: 10px;
+			height: 18px;
+			width: 18px;
+			align-self:center;
+		}
+	</style>
+
+	<script>
+		var animationView = document.getElementById('animationView');
+		animationView.setHidden(false);
+		var btns = document.getElementsByClassName("cell");
+		btns.forEach((item,index)=>{
+			item.setOnClick(()=>{
+				buttonPressed(item,3-index);
+			});
+		});
+
+		document.getElementsByClassName('info').forEach((item,index)=>{
+			item.setOnClick(()=>{
+				buttonPressed(btns[3-index],3-index);
+			});
+		});
+
+		function buttonPressed(item,index){
+			var y = item.maxY - animationView.originY;
+			animationView.startAnimation().moveY(y).commit(2);
+		}
+	</script>
+
+</head>
+<body style = "background-color: rgb(255,255,255);width: calc(100%H);height: calc(100%V);display: flex;flex-direction: column;">
+
+	<scrollView style = "width: 100%;height: calc(100%V);background-color: rgb(255,255,255);display: flex;flex-direction: column;">
+		<label style = "width:120px;height: 44px;margin-left: 12px;margin-top:12px; font :HelveticaNeue-Medium 18px">校历</label>
+		<image style = "width:calc(100%H-20px);aspectRatio:1.845;margin-left: 10px;margin-top: 12px" src = "http://p0ste9mg6.bkt.clouddn.com/time-calendar@2x.png"></image>
+		<label style = "width:120px;height: 44px;margin-left: 12px;margin-top:12px; font :HelveticaNeue-Medium 18px">其他</label>
+		<button  class = "cell">
+			<image class = "leftIcon" imageMode = "aspectfit" src = "http://p0ste9mg6.bkt.clouddn.com/time-book.png"></image>
+			<label class = "info">图书馆</label>
+			<image class = "arrow" src = "http://ou3yprhbt.bkt.clouddn.com/arrow_right.png" imageMode = "aspectfit"></image>
+		</button>
+		<view class = "sep"></view>
+
+		<button class = "cell">
+			<image class = "leftIcon" src = "http://p0ste9mg6.bkt.clouddn.com/time-b.png"></image>
+			<label class = "info">食堂</label>
+			<image class = "arrow" src = "http://ou3yprhbt.bkt.clouddn.com/arrow_right.png" imageMode = "aspectfit"></image>
+		</button>
+		<view class = "sep"></view>
+
+		<button class = "cell">
+			<image class = "leftIcon" imageMode = "aspectfit" src = "http://p0ste9mg6.bkt.clouddn.com/time-hospital.png"></image>
+			<label class = "info">校医院</label>
+			<image class = "arrow" src = "http://ou3yprhbt.bkt.clouddn.com/arrow_right.png" imageMode = "aspectfit"></image>
+		</button>
+		<view class = "sep"></view>
+
+		<button id = "personButton" class = "cell" style = "margin-top: 1px;">
+			<image class = "leftIcon" style = "margin-left: 22px;" imageMode = "aspectfit" src = "http://p0ste9mg6.bkt.clouddn.com/time-card.png"></image>
+			<label class = "info">参卡务中心</label>
+			<image class = "arrow" src = "http://ou3yprhbt.bkt.clouddn.com/arrow_right.png" imageMode = "aspectfit"></image>
+		</button>
+		<view class = "sep"></view>
+
+		<div id = "animationView" class = "sep" style = "height: 120px;" hidden = "true">
+
+		</div>
+
+
+	</scrollView>
+
+
+
+
+</body>
+</html>

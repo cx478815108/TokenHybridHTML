@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token" version = "1.1">
+<head>
+	<title>就业招聘</title>
+	<style>
+		body {
+			background-color: rgb(69,200,220);
+			width: calc(100%H);
+			height: calc(100%V);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+	<script src="index.js"></script>
+</head>
+<body>
+	<div style = "width:calc(100%H);height: 86px;background-color: rgb(69,200,220);position: relative;">
+		<searchBar id = "searchBar" style = "width: 100%;height: 40px;" barColor = "rgb(69,200,220)" placeHolder = "职位/公司名/行业类别" >
+		</searchBar>
+		<div style = "width:100%;height: 1px;background-color: rgb(69,200,220);position: absolute;left: 0px;top: 0px;">
+		</div>
+		<div style = "width:100%;height: 1px;background-color: rgb(69,200,220);position: absolute;left: 0px;top: 39px;">
+		</div>
+		<div style = "width: 100%;flex-grow: 1;display: flex;flex-direction: row;">
+			<button id = "zoneButton" style = "height: 100%;flex-grow: 1;" fontSize = "14px" >湖北 ▼</button>
+			<button id = "univButton" style = "height: 100%;flex-grow: 1;" fontSize = "14px" >武汉理工大学 ▼</button>
+		</div>
+	</div>
+	<table style = "width: 100%;flex-grow: 1;background-color: rgb(255,255,255);" id = "list"
+		rowSectionHeight = "0px"
+		rowHeight = "300px"
+		showSectionView = "false"
+		displayStyle = "plain" showSeparator = "false">
+
+		<tableRow background-color = "rgb(240,240,245)" style= "display: flex;flex-direction: column;">
+			<label style = "width: calc(100%H);height: 150px;text-align: center;color:rgb(255,255,255)" backgroundColor = "color.randomThemColor" lines = '0'>{{item.title}}</label>
+			<div style = "width: calc(100%H);display: flex;height: 100px;background-color: rgb(255, 255, 255)">
+				<label style = "width: calc(100%H);color: rgb(40,40,40);height: 40px;margin-left: 10px;font-size: 14px;">{{item.company}}</label>
+				<div style = "width: calc(100%H);flex-grow: 1;margin-left: 10px;margin-top: 6px;background-color: rgb(255,255,255);display: flex;flex-direction: row;">
+					<image style = "aspectRatio:1;width:12px;margin-top: 2px;" src="https://web.wutnews.net/Application/Recruit/Assets/image/time.png"></image>
+					<label style = "height: 14px;margin-left: 4px;flex-grow: 1;font-size: 12px;color:rgb(100,100,100)">{{item.holdtime}}</label>
+				</div>
+				<div style = "width: calc(100%H);flex-grow: 1;margin-left: 10px;background-color: rgb(255,255,255);display: flex;flex-direction: row;">
+					<image style = "aspectRatio:1;width:12px;margin-top: 2px;" src="https://web.wutnews.net/Application/Recruit/Assets/image/address.png"></image>
+					<label style = "margin-left: 4px;height: 14px;flex-grow: 1;font-size: 12px;color:rgb(100,100,100)">{{item.address}}</label>
+				</div>
+
+			</div>
+			<div style = "display: flex;flex-direction: row;width: calc(100%H+10px);height: 40px;background-color: rgb(238,238,244)">
+				<label style = "margin-left: 12px;height: 100%;flex-grow: 1;font-size: 12px;color:rgb(100,100,100)">{{item.universityShortName}}</label>
+				<label style = "margin-left: 4px;height: 100%;width:100px;font-size: 12px;color:rgb(100,100,100)">浏览量：{{item.totalClicks}}</label>
+
+			</div>
+			<div style = "width: 100%;flex-grow: 1;background-color: rgb(120,0,0)">
+
+			</div>
+		</tableRow>
+	</table>
+
+</body>
+</html>

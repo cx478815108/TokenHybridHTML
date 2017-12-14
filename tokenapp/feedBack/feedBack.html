@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<title>帮助和反馈</title>
+	<style>
+		.cell {
+			background-color: rgb(255,255,255);
+			width: 100%;
+			height: 44px;
+			position: relative;
+		}
+
+		.sep {
+			height: 0.5px;
+			width: 100%;
+			background-color: rgb(230,230,230);
+		}
+		.cellText {
+			flex-grow: 1;
+			margin-left: 12px;
+			height: 43px;
+			color:rgb(80,80,80);
+		}
+
+	</style>
+	<script src="index.js"></script>
+</head>
+<body style = "background-color: rgb(240,240,245);width: calc(100%H);height: calc(100%V);display: flex;flex-direction: column;flex-wrap: wrap;">
+	<label style = "width: calc(100%H-12px);height: 48px;margin-left: 12px;color:rgb(80,80,80);font-size: 14px;">请选择一种反馈方式</label>
+
+	<div class = "cell">
+		<div class = "sep"></div>
+		<label id = "recommandLabel" class= "cellText">加入掌理用户群反馈
+		</label>
+		<button id = "recommandButton" style = "right: 0px;bottom: 0px;right: 4px;border-radius: 8px;width: 60;height: 32px;top: 6px;background-color: rgb(80,80,220);position: absolute;">推荐</button>
+		<div class = "sep" style = "margin-left: 20px;"></div>
+	</div>
+	<div class = "cell">
+		<label id = "recommandLabel2" class= "cellText">加小纬QQ反馈</label>
+		<div class = "sep"></div>
+	</div>
+
+	<label style = "width: calc(100%H-12px);height: 48px;margin-left: 12px;color:rgb(80,80,80);font-size: 14px;">常见问题</label>
+</body>
+</html>

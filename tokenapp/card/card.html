@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token2">
+<head>
+	<meta charset="UTF-8">
+	<title>校园卡</title>
+	<style>
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		scrollView {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		#cardlogo {
+			margin-top: 20px;
+			margin-left: 2%;
+			width: 96%;
+			aspectRatio:1.6;
+			position: relative;
+		}
+
+		#infoLabel {
+			position: absolute;
+			left: 24px;
+			bottom: 30px;
+			color:rgb(230,230,230);
+			font-size: 16px;
+		}
+
+		#cardnoLabel {
+			position: absolute;
+			left: 80px;
+			bottom: 30px;
+			color:rgb(255,255,255);
+			font-size: 16px;
+		}
+
+		#bankno {
+			position: absolute;
+			right: 24px;
+			bottom: 30px;
+			color:rgb(255,255,255);
+			font-size: 16px;
+		}
+
+		#center {
+			width: 80%;
+			margin-left: 10%;
+			height: 60px;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			margin-bottom: 20px;
+		}
+
+		.cardDesc {
+			width: 50%;
+			height: 28px;
+			text-align: center;
+			font-size: 14px;
+			flex-wrap: wrap;
+		}
+
+		.sep {
+			width:92%;
+			margin-left: 4%;
+			height: 0.7px;
+			background-color: rgb(220,220,220);
+		}
+
+		.btnArray {
+			display: flex;
+			margin-top: 20px;
+			width: 92%;
+			height: 80px;
+			margin-left: 4%;
+			flex-wrap:wrap;
+		}
+
+		.arrayTop {
+			width: 100%;
+			height: 28px;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.arrayBottom {
+			flex-direction: row;
+			width: 100%;
+			height: 24px;
+		}
+
+		.topArrayImage {
+			width: 33.3%;
+			height : 20px;
+			imageMode :aspectfit;
+		}
+
+		.arrayText {
+			height: 24px;
+			width: 33.3%;
+			text-align: center;
+			font-size: 13px;
+		}
+	</style>
+
+	<script>
+
+		var infoArray = ["充值","网费","Care+","账户明细","挂失","我"];
+
+		window.onload = ()=>{
+			let images = document.getElementsByClassName("topArrayImage");
+			images.forEach( (element, index) => {
+				element.setOnClick(()=>{
+					itemPressed(5-index);
+				});
+			});
+
+			let labels = document.getElementsByClassName("arrayText");
+			labels.forEach( (element, index) => {
+				element.setOnClick(()=>{
+					itemPressed(5-index);
+				});
+			});
+		}
+
+		function itemPressed(index){
+			token.alert("提示",infoArray[index]+"正在编写中");
+		}
+
+		window.pageRefresh = ()=>{
+			token.showNormalToast('課程評教已可用！',3);
+		}
+	</script>
+
+</head>
+<body>
+	<scrollView>
+		<image id = "cardlogo" src = "https://web.wutnews.net/Application/Card/Assets/image/card.png">
+			<label id = "infoLabel">学生卡</label>
+			<label id = "cardnoLabel">2*****6</label>
+			<label id = "bankno">**** 2266</label>
+		</image>
+		<view id = "center">
+			<label class = "cardDesc" color = "rgb(120,120,120)">卡钱包</label>
+			<label class = "cardDesc" color = "rgb(120,120,120)">电子账户</label>
+			<label class = "cardDesc" color = "rgb(40,40,40)" fontSize = "24px">100</label>
+			<label class = "cardDesc" color = "rgb(40,40,40)" fontSize = "24px">0.0</label>
+		</view>
+		<view class = "sep"></view>
+
+		<view class = "btnArray">
+			<view class = "arrayTop">
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/careplus.png" imageMode = "aspectfit"></image>
+			</view>
+			<view class = "arrayBottom">
+				<label class = "arrayText" color = "rgb(120,120,120)">充值</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">网费</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">Care+</label>
+			</view>
+		</view>
+
+		<view class = "sep"></view>
+
+		<view class = "btnArray">
+			<view class = "arrayTop">
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/detail.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/unlock.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/user.png" imageMode = "aspectfit"></image>
+			</view>
+			<view class = "arrayBottom">
+				<label class = "arrayText" color = "rgb(120,120,120)">账户明细</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">挂失</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">我</label>
+			</view>
+		</view>
+		<view class = "sep"></view>
+	</scrollView>
+</body>
+</html>

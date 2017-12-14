@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>Examples</title>
+	<script >
+	var listData = [
+		{
+			sectionData:
+			{
+				info : "JS API",
+				sectionHeaderTitle : "此页面使用table展示",
+				sectionFooterTitle : "可摇晃手机弹出控制台"
+			},
+			rowsData:[
+			{
+				name : "view组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/view/view.html"
+			},
+			{
+				name : "label组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/label/label.html"
+			},
+			{
+				name : "scroll组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/scroll/scroll.html"
+			},
+			{
+				name : "button组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/button/button.html"
+			},
+			{
+				name : "input组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/input/input.html"
+			},
+			{
+				name : "textArea组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/textArea/textArea.html"
+			},
+			{
+				name : "segment组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/segment/segment.html"
+			},
+			{
+				name : "switch组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/switch/switch.html"
+			},
+			{
+				name : "webView组件",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/examples/webView/webView.html"
+			},
+			{
+				name : "table组件",
+				url:"table"
+			},
+			]
+		},
+		{
+			sectionData:
+			{
+				info : "native API",
+				sectionHeaderTitle : "native API示例",
+			},
+			rowsData:[
+			{
+				name : "等待编写中",
+			},
+			]
+		},
+		{
+			sectionData:
+			{
+				info : "app示例",
+				sectionHeaderTitle : "app示例",
+			},
+			rowsData:[
+			{
+				name : "就业招聘",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/tokenapp/recruit/recruit.html"
+			},
+			{
+				name : "校历",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/tokenapp/calendar/calendar.html"
+			},
+			{
+				name : "校园卡",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/tokenapp/card/card.html"
+			},
+			{
+				name : "Time",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/tokenapp/time/time.html"
+			},
+			{
+				name : "更多",
+				url : "https://coding.net/u/cx478815108/p/TokenDynamicApp-public/git/raw/master/tokenapp/more/more.html"
+			},
+
+			]
+		},
+		]
+
+		let list = document.getElementById("list");
+		list.reloadData(listData);
+		list.setOnClick((section,index) => {
+			let url = listData[section].rowsData[index].url;
+
+			if (url) {
+				if(url == "table"){
+					token.alert("提示","此页面使用table组件展示");
+				}
+				else {
+					document.pushNavigatorWithURL(url);
+				}
+			}
+			else {
+				token.alert("提示","你点击了section"+section+" index"+index);
+			}
+		});
+	</script>
+</head>
+<body style = "background-color: rgb(255,255,255);width: calc(100%H);height: calc(100%V);display: flex;flex-direction: column;">
+	<table style = "width: 100%;height: 100%;background-color: rgb(240,240,245);" id = "list"
+		rowSectionHeight = "24px"
+		rowHeight = "46px"
+		showSectionView = "false"
+		displayStyle = "group" sectionMargin = "28px" showSeparator = "true">
+		<tableSection style = "display: flex;flex-direction: row;width: calc(100%H);height: 24px;background-color: rgb(240,240,245);">
+			<label id = "sectionText" style = "color:rgb(120,0,0);margin-left: 24px;text-align: center;font-size: 14px;" >{{item.info}}</label>
+		</tableSection>
+		<tableRow background-color = "rgb(255,255,255)" accessoryType = "arrow">
+			<label class = "name" style = "height: 100%;text-align: left;color: rgb(36,36,36);margin-left: 10px;font-size: 16px;" identifier = "cellLabel"> {{item.name}}</label>
+		</tableRow>
+	</table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>segment</title>
+	<style type="text/css" media="screen">
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.segment {
+			margin-left: 20px;
+			width: 80%;
+			margin-top: 4px;
+		}
+		label {
+			margin-left: 20px;
+			margin-top: 4px;
+		}
+	</style>
+
+	<script  type="text/javascript" charset="utf-8">
+		let seg1 = document.getElementById("seg1");
+		seg1.setOnClick((index)=>{
+			token.alert("提示","你点击了"+index);
+		});
+	</script>
+</head>
+<body>
+	<segment class = "segment" id = "seg1" titles = "选项一 选项二 选项三 选项四" color = "rgb(20,20,20)"></segment>
+	<segment class = "segment" titles = "选项一 选项二 选项三 选项四" color = "rgb(120,20,20)"></segment>
+	<segment class = "segment" titles = "选项一 选项二 选项三 选项四" color = "rgb(20,120,20)"></segment>
+	<label>点击第一个控件试一试</label>
+</body>
+</html>

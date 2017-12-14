@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<style type="text/css" media="screen">
+		body {
+			background-color: rgb(255,255,255);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		table {
+			width: 100%;
+			height: 100%;
+			background-color: rgb(240,240,245);
+		}
+
+		.name {
+			margin-left: 10px;
+			font-size: 16px;
+			color: rgb(36,36,36);
+			text-align: left;
+			height: 100%;
+		}
+
+		tableSection {
+			display: flex;
+			flex-direction: row;
+			width: calc(100%H);
+			height: 24px;
+			background-color: rgb(240,240,245);
+		}
+
+		#sectionText {
+			margin-left: 4px;
+			text-align: center;
+			font-size: 14px;
+		}
+	</style>
+	<script charset="utf-8">
+		let listData = [
+		        {
+		            sectionData:
+		                {
+		                    info : '文档示例',
+		                    sectionHeaderTitle : "section0标题头部",
+		                    sectionFooterTitle : "section0标题尾部"
+		                },
+		            rowsData:[
+		                {
+		                    name : 'exp1',
+		                },
+		                {
+		                    name : 'exp2',
+		                },
+		                {
+		                    name : 'exp3',
+		                },
+		                {
+		                    name : 'exp4',
+		                },
+		                {
+		                    name : 'exp5',
+		                },
+		                {
+		                    name : 'exp6',
+		                },
+		                {
+		                    name : 'exp7',
+		                }
+		            ]
+		        },
+		        {
+		            sectionData:
+		                {
+		                    info : 'JS API',
+		                    sectionHeaderTitle : "section1标题头部",
+		                    sectionFooterTitle : "section1标题尾部"
+		                },
+		            rowsData:[
+		                {
+		                    name : 'token.alert(a,b)',
+		                },
+		            ]
+		        },
+		    ];
+
+		let list = document.getElementById("list");
+	    list.reloadData(listData);
+	</script>
+</head>
+<body>
+	<table id = "list"
+						rowSectionHeight = "40px"
+						rowHeight = "46px"
+						showSectionView = "false"
+						displayStyle = "group" sectionMargin = "40px">
+		<tableRow background-color = "rgb(255,255,255)" accessoryType = "arrow">
+			<label class = "name" identifier = "cellLabel"> {{item.name}}</label>
+		</tableRow>
+	</table>
+</body>
+</html>

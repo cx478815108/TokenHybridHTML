@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<title>校历</title>
+	<style>
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+		}
+		image {
+			margin-top: 20px;
+			margin-left: 5%;
+			width: 90%;
+			aspectRatio:1.2;
+		}
+
+		button {
+			margin-top: 20px;
+			margin-left: 5%;
+			width: 90%;
+			height: 44px;
+			background-color: rgb(69,200,220);
+			border-radius: 4px;
+		}
+	</style>
+	<script >
+		var saveButton = document.getElementById("saveButton");
+	    var imgData = {
+	        url : "https://palmwhut.sinaapp.com/webapp/A8063DD9E1258D27050742DDDDB5C533.png",
+	        success : (desc)=>{
+	            token.showNormalToast(desc,3);
+	        },
+	        failure:(code,desc)=>{
+	            token.showNormalToast('没有开启相册访问权限，无法保存！',3);
+	        }
+	    }
+
+	    var alertData = {
+	        title        : "提示",
+	        msg          : "确定要保存到相册吗？",
+	        actionTitles : ["确定"],
+	        feedBack     : (index)=>{
+	            if (index == 0) {
+	                token.saveImage(imgData);
+	            }
+	        }
+	    }
+
+	    var previewData = {
+	    	images:["https://palmwhut.sinaapp.com/webapp/A8063DD9E1258D27050742DDDDB5C533.png"]
+	    }
+	    saveButton.setOnClick(()=>{
+	        token.alertTitles(alertData);
+	    })
+
+	    var image = document.getElementById("image");
+	    image.setOnClick(()=>{
+	    	token.log("hahah");
+	    	token.previewImages(previewData);
+	    })
+	</script>
+
+</head>
+<body>
+	<image id = "image" src = "https://palmwhut.sinaapp.com/webapp/A8063DD9E1258D27050742DDDDB5C533.png"></image>
+	<button id = "saveButton" type="custom" highlightTitleColor = "rgb(240,240,245)">保存到相册</button>
+</body>
+</html>

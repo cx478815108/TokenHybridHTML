@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+	<navigationBar backgroundColor = "rgb(109,100,220)" translucent = "false"></navigationBar>
+	<title>view和div标签</title>
+	<style>
+		.normal {
+			width: 80%;
+			height: 40px;
+			margin-left: 10%;
+			margin-top: 4px;
+			background-color: rgb(230,230,238);
+		}
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 80%;
+			height: 200px;
+			margin-left: 10%;
+			margin-top: 4px;
+			background-color: rgb(69,200,220);
+		}
+	</style>
+
+	<script>
+		var dotView = document.getElementById('dots');
+		dotView.setOnIndexChange((index)=>{
+			token.log(index);
+		});
+
+		window.pageShow = ()=>{
+			token.log('viewDidAppear');
+		}
+	</script>
+</head>
+<body style = "background-color: rgb(255,255,255);width: calc(100%H);height: calc(100%V);display: flex;flex-direction: column;flex-wrap: wrap;">
+	<view class = "normal" style = "border-radius: 20px;"></view>
+	<view class = "normal"></view>
+	<view class = "normal" style = "border-width: 2px;border-color: rgb(240,0,0);"></view>
+	<view class = "normal" style = "background-color: rgb(130,130,138);"></view>
+
+	<view class = "container">
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ;background-color: rgb(200,0,0)"></view>
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ; background-color: rgb(0,200,0)"></view>
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ; background-color: rgb(0,0,200)"></view>
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ;margin-top:1px; background-color: rgb(200,200,200)"></view>
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ;margin-top:1px; background-color: rgb(100,100,100)"></view>
+		<view class = "box" style = "width: 33%;height: 50px;margin-right: 1px ;margin-top:1px; background-color: rgb(180,80,100)"></view>
+	</view>
+
+
+	<dots id = "dots" style = "width: 80%;height: 40px;margin-left: 40px;background-color: rgb(240,240,245)" number = "4" dotColor = "rgb(220,0,0)" onDotColor = "rgb(0,220,0)"></dots>
+</body>
+</html>
