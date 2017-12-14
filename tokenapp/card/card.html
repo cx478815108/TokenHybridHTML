@@ -112,36 +112,6 @@
 			font-size: 13px;
 		}
 	</style>
-
-	<script>
-
-		var infoArray = ["充值","网费","Care+","账户明细","挂失","我"];
-
-		window.onload = ()=>{
-			let images = document.getElementsByClassName("topArrayImage");
-			images.forEach( (element, index) => {
-				element.setOnClick(()=>{
-					itemPressed(5-index);
-				});
-			});
-
-			let labels = document.getElementsByClassName("arrayText");
-			labels.forEach( (element, index) => {
-				element.setOnClick(()=>{
-					itemPressed(5-index);
-				});
-			});
-		}
-
-		function itemPressed(index){
-			token.alert("提示",infoArray[index]+"正在编写中");
-		}
-
-		window.pageRefresh = ()=>{
-			token.showNormalToast('課程評教已可用！',3);
-		}
-	</script>
-
 </head>
 <body>
 	<scrollView>

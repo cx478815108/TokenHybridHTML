@@ -32,10 +32,10 @@
 	    var imgData = {
 	        url : "https://palmwhut.sinaapp.com/webapp/A8063DD9E1258D27050742DDDDB5C533.png",
 	        success : (desc)=>{
-	            token.showNormalToast(desc,3);
+	            token.alert('提示','保存成功');
 	        },
 	        failure:(code,desc)=>{
-	            token.showNormalToast('没有开启相册访问权限，无法保存！',3);
+	            token.alert('提示','没有开启相册访问权限，无法保存！');
 	        }
 	    }
 
@@ -59,8 +59,7 @@
 
 	    var image = document.getElementById("image");
 	    image.setOnClick(()=>{
-	    	token.log("hahah");
-	    	token.previewImages(previewData);
+	    	token.alert('提示','请自己扩展照片预览功能');
 	    })
 	</script>
 
