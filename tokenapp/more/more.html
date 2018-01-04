@@ -135,42 +135,6 @@
 		]
 
 		function clickAtIndex(index,item){
-			// var singleData = data[index];
-
-			// if (singleData.title == 'VPN') {
-			// 	token.alertTitles({
-			// 		title: 'VPN由其他软件提供',
-			// 		msg:"VPN服务器地址：https://vpnu.whut.edu.cn \n账号密码与校园网一致 \n点击“确定”将跳转app store 下载",
-			// 		actionTitles: ["确定"],
-			// 		feedBack:(index)=>{
-			// 			if (index == 0) {
-			// 				token.openAppWithURL({
-			// 					url:singleData.url
-			// 				})
-			// 			}
-			// 		},
-			// 		cancleButton: true,
-			// 	});
-			// }
-			// if (singleData.title == '失物招领' || singleData.title == '课程评教' || singleData.title == '校内邮箱') {
-			// 	if (token.existUser()) {
-			// 		token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
-			// 	}
-			// 	else {
-			// 		token.requestLoginUser(()=>{
-			// 			token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
-			// 		},()=>{
-			// 			token.showNormalToast('必须登录才可以使用该功能');
-			// 		});
-			// 	}
-			// }
-			// else {
-			// 	token.pushWebPageWithURL({title:singleData.title,url:singleData.url});
-			// }
-			// item.setBackgroundColor('rgb(240,240,245)');
-			// token.setMainTimeOut(()=>{
-			// 	item.setBackgroundColor('rgb(255,255,255)');
-			// },0.25);
 		}
 
 		var cards = document.getElementsByClassName("card");
@@ -196,10 +160,6 @@
 			})
 			label.setText(singleData.title);
 		});
-
-		// window.pageRefresh = ()=>{
-		// 	token.showNormalToast('課程評教已可用！',3);
-		// }
 
 	</script>
 </head>

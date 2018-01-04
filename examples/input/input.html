@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" html-identify = "Token">
 <head>
-	<meta charset="UTF-8">
 	<title>input组件</title>
 	<style type="text/css" media="screen">
 		body {
@@ -22,9 +21,9 @@
 	</style>
 
 	<script  type="text/javascript" charset="utf-8">
-		let input = document.getElementById("inputOne");
-		let label1 = document.getElementById("label1");
-		let label2 = document.getElementById("label2");
+		var input  = document.getElementById("inputOne");
+		var label1 = document.getElementById("label1");
+		var label2 = document.getElementById("label2");
 		input.onBeginEditing(()=>{
 			label1.setText("开始输入");
 		});

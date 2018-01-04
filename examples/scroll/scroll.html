@@ -2,7 +2,6 @@
 <html lang="en" html-identify = "Token">
 <head>
 	<title>scrollView</title>
-	<meta charset="UTF-8">
 	<style type="text/css" media="screen">
 		body {
 			background-color: rgb(255,255,255);
@@ -84,27 +83,27 @@
 	</style>
 
 	<script  type="text/javascript" charset="utf-8" >
-		let wrapper = document.getElementsByClassName("wrapper")[0];
-		let wrapper2 = document.getElementsByClassName("wrapper2")[0];
-		let btn1 = document.getElementById("btn1");
+		var wrapper = document.getElementsByClassName("wrapper")[0];
+		var wrapper2 = document.getElementsByClassName("wrapper2")[0];
+		var btn1 = document.getElementById("btn1");
 		btn1.setOnClick(()=>{
 			wrapper.scrollToTop(1);
 			wrapper2.scrollToTop(1);
 		})
 
-		let btn2 = document.getElementById("btn2");
+		var btn2 = document.getElementById("btn2");
 		btn2.setOnClick(()=>{
 			wrapper2.showHBar(0);
 			wrapper.showVBar(0);
 		})
 
-		let btn3 = document.getElementById("btn3");
+		var btn3 = document.getElementById("btn3");
 		btn3.setOnClick(()=>{
 			wrapper.scrollEnable(0);
 			wrapper2.scrollEnable(0);
 		})
 
-		let btn4 = document.getElementById("btn4");
+		var btn4 = document.getElementById("btn4");
 		btn4.setOnClick(()=>{
 			wrapper2.showHBar(1);
 			wrapper.showVBar(1);
